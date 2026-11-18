@@ -1,0 +1,26 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: alem_da_tag
+      POSTGRES_USER: alem_da_tag
+      POSTGRES_PASSWORD: alem_da_tag_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_DATABASE: alem_da_tag_nosql
+      MONGO_INITDB_ROOT_USERNAME: alem_da_tag
+      MONGO_INITDB_ROOT_PASSWORD: alem_da_tag_dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  postgres_data:
+  mongo_data:
