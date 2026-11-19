@@ -3,34 +3,243 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Além da Tag</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta
+      name="description"
+      content="Além da Tag: comunidade aberta de dados e martech."
+    />
+    <title>Além da Tag | Comunidade de dados e martech</title>
+    <script>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.getItem("adt-theme") !== "light",
+      );
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Além da Tag</a>
+      <a class="brand" href="index.html" aria-label="Além da Tag, início"
+        ><span class="brand-mark">&lt;/<b>•</b>&gt;</span> Além da Tag</a
+      >
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a class="active" href="index.html">Início</a
+        ><a href="artigo.html">Artigos</a><a href="trilhas.html">Trilhas</a
+        ><a href="comunidade.html">Comunidade</a>
+      </nav>
+      <div class="header-actions">
+        <label class="search"
+          ><i data-lucide="search"></i
+          ><input
+            placeholder="Buscar na comunidade"
+            aria-label="Buscar na comunidade"
+          /><kbd>⌘ K</kbd></label
+        ><button class="button button-small join-trigger" type="button">
+          Participar <span>→</span></button
+        ><button class="theme-toggle" type="button" aria-label="Alternar tema">
+          <i data-lucide="sun"></i><i data-lucide="moon"></i></button
+        ><button
+          class="icon-button menu-button"
+          type="button"
+          aria-label="Abrir menu"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+      </div>
     </header>
-
-    <main class="container">
-      <section class="hero">
-        <p class="eyebrow">Data &amp; Martech</p>
-        <h1>Aprenda, pratique e conecte dados à estratégia.</h1>
-        <p>Uma comunidade interativa para profissionais que vivem além das tags.</p>
-        <a class="button" href="comunidade.html">Explorar trilhas</a>
+    <main>
+      <section class="hero home-hero page-width">
+        <div class="hero-copy">
+          <p class="eyebrow">● &nbsp; DADOS CONECTAM. PESSOAS TAMBÉM.</p>
+          <h1>Além da <span>Tag</span></h1>
+          <p class="lead">
+            A comunidade de dados e martech de dev para dev. Sem cursos, apenas
+            conhecimento e carreira.
+          </p>
+          <div class="hero-actions">
+            <button class="button join-trigger" type="button">
+              Participar da Comunidade <span>→</span></button
+            ><span class="mono-note">↳ &nbsp; JOIN 500+ DEVS</span>
+          </div>
+        </div>
+        <div class="terminal" aria-label="Feed de eventos ao vivo">
+          <div class="terminal-top">
+            <span class="traffic">● ● ●</span><span>alemdatiag / events</span
+            ><strong>● LIVE</strong>
+          </div>
+          <div class="terminal-body">
+            <p>$ listen --stack martech --live</p>
+            <p><small>19:42:01</small> <b>page_view</b><em>✓ GA4</em></p>
+            <p><small>19:42:03</small> <b>lead_generated</b><em>✓ Adobe</em></p>
+            <p>
+              <small>19:42:04</small> <b>identity_resolved</b><em>✓ CDP</em>
+            </p>
+            <p>&gt; 3 eventos. Um único Data Layer. _</p>
+          </div>
+        </div>
       </section>
-
-      <section aria-labelledby="trilhas-title">
-        <h2 id="trilhas-title">Trilhas em destaque</h2>
-        <div id="trilhas" class="card-grid" aria-live="polite"></div>
-      </section>
+      <div class="page-width feed-layout">
+        <section class="feed" aria-labelledby="radar-title">
+          <div class="section-heading">
+            <h2 id="radar-title">No radar</h2>
+            <span>Recentes ↓</span>
+          </div>
+          <div class="tag-row" role="group" aria-label="Filtrar artigos">
+            <button class="filter active" data-filter="Todos">#Todos</button
+            ><button class="filter" data-filter="AdobeStack">#AdobeStack</button
+            ><button class="filter" data-filter="GA4">#GA4</button
+            ><button class="filter" data-filter="CDP">#CDP</button
+            ><button class="filter" data-filter="CarreiraInternacional">
+              #CarreiraInternacional
+            </button>
+          </div>
+          <div class="article-grid">
+            <article class="article-card" data-tags="AdobeStack Martech">
+              <div class="card-tags">
+                #AdobeAnalytics &nbsp; #Martech <span>EM ALTA</span>
+              </div>
+              <h3>
+                <a href="artigo.html"
+                  >Como estruturar o Data Layer para CDPs globais</a
+                >
+              </h3>
+              <p>Um contrato de dados consistente, de ponta a ponta.</p>
+              <footer>
+                Vinícius Fonseca · 8 min de leitura
+                <span
+                  ><button
+                    class="icon-button bookmark"
+                    aria-label="Salvar artigo"
+                  >
+                    <i data-lucide="bookmark"></i></button
+                ></span>
+              </footer>
+            </article>
+            <article class="article-card" data-tags="GA4 Analytics">
+              <div class="card-tags">#GA4 &nbsp; #Analytics</div>
+              <h3>GA4 sem ruído: eventos que realmente importam</h3>
+              <p>Menos eventos. Mais contexto para suas decisões.</p>
+              <footer>
+                Camila Santos · 5 min de leitura
+                <span
+                  ><button
+                    class="icon-button bookmark"
+                    aria-label="Salvar artigo"
+                  >
+                    <i data-lucide="bookmark"></i></button
+                ></span>
+              </footer>
+            </article>
+            <article class="article-card" data-tags="CDP DataEngineering">
+              <div class="card-tags">#CDP &nbsp; #DataEngineering</div>
+              <h3>Identidade unificada sem virar uma caixa-preta</h3>
+              <p>Como conectar perfis sem perder a rastreabilidade.</p>
+              <footer>
+                Juliano Pastorini · 6 min de leitura
+                <span
+                  ><button
+                    class="icon-button bookmark"
+                    aria-label="Salvar artigo"
+                  >
+                    <i data-lucide="bookmark"></i></button
+                ></span>
+              </footer>
+            </article>
+            <article class="article-card" data-tags="CarreiraInternacional">
+              <div class="card-tags">#CarreiraInternacional</div>
+              <h3>Seu stack de dados também abre fronteiras</h3>
+              <p>Experiências reais para o próximo passo na carreira.</p>
+              <footer>
+                Vinícius Fonseca · 7 min de leitura
+                <span
+                  ><button
+                    class="icon-button bookmark"
+                    aria-label="Salvar artigo"
+                  >
+                    <i data-lucide="bookmark"></i></button
+                ></span>
+              </footer>
+            </article>
+          </div>
+        </section>
+        <aside class="side-column">
+          <section class="side-card">
+            <h2>Explore por assunto</h2>
+            <div class="side-tags">
+              <button class="filter active" data-filter="Todos">#Todos</button
+              ><button class="filter" data-filter="AdobeStack">
+                #AdobeStack</button
+              ><button class="filter" data-filter="GA4">#GA4</button
+              ><button class="filter" data-filter="CDP">#CDP</button
+              ><button class="filter" data-filter="CarreiraInternacional">
+                #CarreiraInternacional
+              </button>
+            </div>
+          </section>
+          <section class="side-card founders">
+            <h2>Por trás das tags</h2>
+            <p>Dois devs. Uma vontade de compartilhar.</p>
+            <a href="#">Juliano Pastorini <span>↗</span></a
+            ><a href="#">Vinícius Fonseca <span>↗</span></a
+            ><small>FOUNDERS / ALÉM DA TAG</small>
+          </section>
+        </aside>
+      </div>
     </main>
-
+    <footer class="site-footer">
+      <span>© 2026 Além da Tag · De dev para dev.</span
+      ><span>Sem cursos. Sem atalhos. Só troca.</span>
+    </footer>
     <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="index.html" aria-current="page">Início</a>
-      <a href="artigo.html">Artigos</a>
-      <a href="comunidade.html">Comunidade</a>
+      <a class="active" href="index.html"><i data-lucide="house"></i>Início</a
+      ><a href="artigo.html"><i data-lucide="file-text"></i>Artigos</a
+      ><a href="trilhas.html"><i data-lucide="bookmark"></i>Trilhas</a
+      ><a href="comunidade.html"><i data-lucide="users-round"></i>Comunidade</a>
     </nav>
-
+    <dialog class="auth-modal" id="auth-modal">
+      <div class="modal-head">
+        <a class="brand" href="index.html"
+          ><span class="brand-mark">&lt;/<b>•</b>&gt;</span> Além da Tag</a
+        ><button class="icon-button close-modal" aria-label="Fechar">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-tabs">
+        <button class="active" data-auth-tab="login">Entrar</button
+        ><button data-auth-tab="signup">Criar Conta</button>
+      </div>
+      <form id="auth-form">
+        <h2 id="auth-title">Bem-vindo de volta.</h2>
+        <p>Conhecimento aberto. Conexões reais.</p>
+        <label
+          >E-mail<input
+            type="email"
+            placeholder="voce@exemplo.com"
+            required /></label
+        ><label
+          >Senha<input type="password" placeholder="••••••••" required /></label
+        ><button class="button" type="submit" id="auth-submit">
+          Entrar na Comunidade
+        </button>
+      </form>
+      <div class="social-label">ou continue com</div>
+      <div class="social-actions">
+        <button type="button">GitHub</button
+        ><button type="button">Google</button>
+      </div>
+      <small
+        >Ao continuar, você concorda com os termos e a política de privacidade
+        da comunidade.</small
+      >
+    </dialog>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

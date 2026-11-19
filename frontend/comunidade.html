@@ -4,32 +4,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Comunidade | Além da Tag</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <script>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.getItem("adt-theme") !== "light",
+      );
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Além da Tag</a>
+      <a class="brand" href="index.html"
+        ><span class="brand-mark">&lt;/<b>•</b>&gt;</span> Além da Tag</a
+      >
+      <nav class="desktop-nav">
+        <a href="index.html">Início</a><a href="artigo.html">Artigos</a
+        ><a href="trilhas.html">Trilhas</a
+        ><a class="active" href="comunidade.html">Comunidade</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button-small join-trigger">Participar →</button
+        ><button class="theme-toggle" aria-label="Alternar tema">
+          <i data-lucide="sun"></i><i data-lucide="moon"></i>
+        </button>
+      </div>
     </header>
-
-    <main class="container">
-      <section>
-        <p class="eyebrow">Comunidade</p>
-        <h1>Conecte-se a quem transforma dados em impacto.</h1>
-        <p>Troque experiências, compartilhe soluções e avance junto com a comunidade.</p>
+    <main class="page-width">
+      <section class="page-title">
+        <p class="eyebrow">● &nbsp; CONEXÕES REAIS. ZERO GATEKEEPING.</p>
+        <h1>O próximo nível é uma troca.</h1>
+        <p>Gente que compartilha o que sabe e aprende construindo junto.</p>
       </section>
-
-      <section aria-labelledby="trilhas-comunidade">
-        <h2 id="trilhas-comunidade">Trilhas disponíveis</h2>
-        <div id="trilhas" class="card-grid" aria-live="polite"></div>
+      <section class="stats">
+        <div class="stat">
+          <strong>500+</strong><span>devs conectados</span>
+        </div>
+        <div class="stat"><strong>32</strong><span>online agora</span></div>
+        <div class="stat"><strong>100%</strong><span>gratuito</span></div>
+      </section>
+      <div class="community-grid" style="margin-top: 3rem">
+        <section>
+          <div class="section-heading">
+            <h2>Encontre sua conversa</h2>
+            <span>03 canais</span>
+          </div>
+          <div class="channel-list">
+            <article class="channel">
+              <strong>#</strong>
+              <div>
+                <h3>dados-e-martech</h3>
+                <p>Data Layer, CDPs e implementações.</p>
+              </div>
+              <small>12 novas<br />→</small>
+            </article>
+            <article class="channel">
+              <strong>&lt;/&gt;</strong>
+              <div>
+                <h3>debug-juntos</h3>
+                <p>Travou no evento? Traz pra roda.</p>
+              </div>
+              <small>8 novas<br />→</small>
+            </article>
+            <article class="channel">
+              <strong>↗</strong>
+              <div>
+                <h3>carreira-global</h3>
+                <p>Seu próximo passo, sem fronteiras.</p>
+              </div>
+              <small>5 novas<br />→</small>
+            </article>
+          </div>
+        </section>
+        <aside>
+          <section class="event-card">
+            <p class="eyebrow">PRÓXIMO ENCONTRO　·　● AO VIVO</p>
+            <h2>Do evento ao insight</h2>
+            <p class="lead">Uma conversa aberta sobre GA4 e CDPs.</p>
+            <p class="eyebrow">19 NOV　·　19H BRT</p>
+            <button class="button join-trigger">Entrar na comunidade →</button>
+          </section>
+          <section class="career-card" style="margin-top: 1rem">
+            <h2>Seu próximo passo</h2>
+            <div class="career-item">
+              <small>OPORTUNIDADE</small>
+              <h3>Analytics Engineer ↗</h3>
+              <p>Remoto · Stack GA4 + BigQuery</p>
+            </div>
+            <div class="career-item">
+              <small>MENTORIA</small>
+              <h3>Carreira internacional em dados ↗</h3>
+              <p>Troca entre devs · Comunidade</p>
+            </div>
+          </section>
+        </aside>
+      </div>
+      <section class="note-card" style="margin: 2rem 0 5rem">
+        <strong>&lt;/•&gt;　Aqui, toda pergunta tem espaço.</strong
+        ><br />Respeito, contexto e vontade de construir. Esse é o combinado.
       </section>
     </main>
-
-    <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="artigo.html">Artigos</a>
-      <a href="comunidade.html" aria-current="page">Comunidade</a>
+    <footer class="site-footer">
+      <span>© 2026 Além da Tag · De dev para dev.</span
+      ><span>Sem cursos. Sem atalhos. Só troca.</span>
+    </footer>
+    <nav class="bottom-nav">
+      <a href="index.html"><i data-lucide="house"></i>Início</a
+      ><a href="artigo.html"><i data-lucide="file-text"></i>Artigos</a
+      ><a href="trilhas.html"><i data-lucide="bookmark"></i>Trilhas</a
+      ><a class="active" href="comunidade.html"
+        ><i data-lucide="users-round"></i>Comunidade</a
+      >
     </nav>
-
+    <dialog class="auth-modal" id="auth-modal">
+      <div class="modal-head">
+        <strong class="brand">Além da Tag</strong
+        ><button class="icon-button close-modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-tabs">
+        <button class="active" data-auth-tab="login">Entrar</button
+        ><button data-auth-tab="signup">Criar Conta</button>
+      </div>
+      <form id="auth-form">
+        <h2 id="auth-title">Bem-vindo de volta.</h2>
+        <p>Conhecimento aberto. Conexões reais.</p>
+        <label>E-mail<input type="email" required /></label
+        ><label>Senha<input type="password" required /></label
+        ><button class="button" id="auth-submit">Entrar na Comunidade</button>
+      </form>
+    </dialog>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trilhas | Além da Tag</title>
+    <script>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.getItem("adt-theme") !== "light",
+      );
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"
+        ><span class="brand-mark">&lt;/<b>•</b>&gt;</span> Além da Tag</a
+      >
+      <nav class="desktop-nav">
+        <a href="index.html">Início</a><a href="artigo.html">Artigos</a
+        ><a class="active" href="trilhas.html">Trilhas</a
+        ><a href="comunidade.html">Comunidade</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button-small join-trigger">Participar →</button
+        ><button class="theme-toggle" aria-label="Alternar tema">
+          <i data-lucide="sun"></i><i data-lucide="moon"></i>
+        </button>
+      </div>
+    </header>
+    <main class="page-width">
+      <section class="page-title">
+        <p class="eyebrow">BIBLIOTECA ABERTA / APRENDA FAZENDO</p>
+        <h1>Trilhas &amp; Playbooks</h1>
+        <p>Guias práticos e abertos de Martech e Dados, sem enrolação.</p>
+      </section>
+      <div class="tabs">
+        <button class="filter active" data-filter="Todas">
+          Todas as trilhas</button
+        ><button class="filter" data-filter="Martech">Martech</button
+        ><button class="filter" data-filter="Adobe Stack">Adobe Stack</button
+        ><button class="filter" data-filter="Dados">
+          Dados &amp; Analytics
+        </button>
+      </div>
+      <section class="tracks-grid" aria-label="Trilhas disponíveis">
+        <article class="track-card" data-category="Martech">
+          <span class="track-meta">01 / MARTECH</span>
+          <p class="track-meta">Intermediário · 6h</p>
+          <h2>Arquitetura de Data Layer &amp; GTM</h2>
+          <p>
+            Do contrato de dados ao deploy: eventos consistentes, tags
+            confiáveis e validação na prática.
+          </p>
+          <div class="track-stats">
+            8 guias · 3 projetos<br /><strong>Vinícius Fonseca</strong><br />4.9
+            ★ · 248 inscritos
+          </div>
+          <button class="button enrollment">Iniciar Trilha →</button>
+        </article>
+        <article class="track-card" data-category="Adobe Stack">
+          <span class="track-meta">02 / ADOBE STACK</span>
+          <p class="track-meta">Avançado · 8h</p>
+          <h2>Adobe Analytics &amp; AEP na Prática</h2>
+          <p>
+            Da coleta à ativação: construa uma base conectada com Analytics e
+            Experience Platform.
+          </p>
+          <div class="track-stats">
+            10 guias · 4 projetos<br /><strong>Juliano Pastorini</strong
+            ><br />4.9 ★ · 186 inscritos
+          </div>
+          <button class="button enrollment">Iniciar Trilha →</button>
+        </article>
+        <article class="track-card" data-category="Dados">
+          <span class="track-meta">03 / DADOS</span>
+          <p class="track-meta">Iniciante · 5h</p>
+          <h2>SQL &amp; Python para Analytics</h2>
+          <p>
+            Consulte, transforme e explore seus dados com exemplos que saem do
+            notebook para o dia a dia.
+          </p>
+          <div class="track-stats">
+            7 guias · 3 projetos<br /><strong>Vinícius Fonseca</strong><br />4.8
+            ★ · 312 inscritos
+          </div>
+          <button class="button enrollment">Iniciar Trilha →</button>
+        </article>
+      </section>
+      <section class="guide">
+        <article>
+          <h3>01 · Escolha um caminho</h3>
+          <p>Do fundamento ao desafio prático.</p>
+        </article>
+        <article>
+          <h3>02 · Construa de verdade</h3>
+          <p>Exemplos abertos, no seu ritmo.</p>
+        </article>
+        <article>
+          <h3>03 · Compartilhe a descoberta</h3>
+          <p>Traga suas dúvidas para a comunidade.</p>
+        </article>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <span>© 2026 Além da Tag · De dev para dev.</span
+      ><span>Sem cursos. Sem atalhos. Só troca.</span>
+    </footer>
+    <nav class="bottom-nav">
+      <a href="index.html"><i data-lucide="house"></i>Início</a
+      ><a href="artigo.html"><i data-lucide="file-text"></i>Artigos</a
+      ><a class="active" href="trilhas.html"
+        ><i data-lucide="bookmark"></i>Trilhas</a
+      ><a href="comunidade.html"><i data-lucide="users-round"></i>Comunidade</a>
+    </nav>
+    <dialog class="auth-modal" id="auth-modal">
+      <div class="modal-head">
+        <strong class="brand">Além da Tag</strong
+        ><button class="icon-button close-modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-tabs">
+        <button class="active" data-auth-tab="login">Entrar</button
+        ><button data-auth-tab="signup">Criar Conta</button>
+      </div>
+      <form id="auth-form">
+        <h2 id="auth-title">Bem-vindo de volta.</h2>
+        <p>Conhecimento aberto. Conexões reais.</p>
+        <label>E-mail<input type="email" required /></label
+        ><label>Senha<input type="password" required /></label
+        ><button class="button" id="auth-submit">Entrar na Comunidade</button>
+      </form>
+    </dialog>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      document
+        .querySelectorAll(".enrollment")
+        .forEach((button) =>
+          button.addEventListener("click", () =>
+            Swal.fire({
+              title: "Trilha adicionada!",
+              text: "Seu caminho começa agora.",
+              icon: "success",
+              confirmButtonColor: "#f59e0b",
+            }),
+          ),
+        );
+    </script>
+  </body>
+</html>

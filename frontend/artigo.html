@@ -3,34 +3,131 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Artigos | Além da Tag</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Como estruturar o Data Layer | Além da Tag</title>
+    <script>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.getItem("adt-theme") !== "light",
+      );
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/custom.css" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="index.html">Além da Tag</a>
+      <a class="brand" href="index.html"
+        ><span class="brand-mark">&lt;/<b>•</b>&gt;</span> Além da Tag</a
+      >
+      <nav class="desktop-nav">
+        <a href="index.html">Início</a
+        ><a class="active" href="artigo.html">Artigos</a
+        ><a href="trilhas.html">Trilhas</a
+        ><a href="comunidade.html">Comunidade</a>
+      </nav>
+      <div class="header-actions">
+        <button class="button button-small join-trigger">Participar →</button
+        ><button class="theme-toggle" aria-label="Alternar tema">
+          <i data-lucide="sun"></i><i data-lucide="moon"></i>
+        </button>
+      </div>
     </header>
-
-    <main class="container">
-      <article>
-        <p class="eyebrow">Data &amp; Martech</p>
-        <h1>Da coleta à ativação</h1>
-        <p>Conteúdo prático sobre dados, tags e experiências orientadas por estratégia.</p>
-        <section class="sandbox" aria-labelledby="sandbox-title">
-          <h2 id="sandbox-title">Simulador de dataLayer</h2>
-          <p>Envie um evento para o sandbox e veja a integração em ação.</p>
-          <button id="push-event" type="button" class="button">Disparar evento</button>
-          <pre id="event-output" aria-live="polite"></pre>
+    <main class="page-width article-layout">
+      <article class="article-main">
+        <a class="eyebrow" href="index.html">← Voltar ao feed</a>
+        <p class="eyebrow" style="margin-top: 3rem">
+          #AdobeAnalytics &nbsp; / &nbsp; #Martech
+        </p>
+        <h1>Como estruturar o Data Layer para CDPs globais</h1>
+        <p class="article-meta">
+          <strong>Vinícius Fonseca</strong>　·　12 nov, 2026　·　8 min de
+          leitura
+        </p>
+        <p class="article-intro">
+          Seu Data Layer não precisa falar mil línguas. Precisa de uma estrutura
+          que todos os destinos entendam.
+        </p>
+        <h2 id="contrato">01 / Um contrato, vários destinos</h2>
+        <p class="lead">
+          Comece pelo evento, não pela ferramenta. Um schema consistente conecta
+          Adobe, GA4 e seu CDP sem duplicar a lógica de negócio.
+        </p>
+        <section class="code-card">
+          <div class="code-head">
+            <span>dataLayer.js</span
+            ><button id="copy-code" type="button">Copiar</button>
+          </div>
+          <pre id="sandbox-code"><code>window.dataLayer.push({
+  <span class="key">event</span>: "lead_generated",
+  user: {
+    id: "dev_500",
+    consent: true
+  }
+});</code></pre>
+          <div class="sandbox-actions">
+            <button id="push-event" type="button">
+              ▷ Disparar lead_generated</button
+            ><button id="reset-event" type="button">↻ Resetar evento</button>
+          </div>
         </section>
+        <pre id="event-output" class="note-card" aria-live="polite">{}</pre>
+        <p class="note-card">
+          { } &nbsp; Consentimento faz parte do contrato — valide antes de
+          enviar.
+        </p>
+        <div class="article-meta" style="margin-top: 2rem">
+          ♡ 42 curtidas　　12 comentários
+          <a
+            class="button"
+            href="comunidade.html"
+            style="float: right; padding: 0.7rem 1rem"
+            >Conversar →</a
+          >
+        </div>
       </article>
+      <aside class="toc">
+        <h2>Neste artigo</h2>
+        <a class="active" href="#contrato">01　Um contrato, vários destinos</a
+        ><a href="#teste">02　Teste o evento na prática</a
+        ><a href="#consentimento">03　Consentimento no schema</a>
+        <hr />
+        <span class="eyebrow">8 MIN DE LEITURA</span>
+      </aside>
     </main>
-
-    <nav class="bottom-nav" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="artigo.html" aria-current="page">Artigos</a>
-      <a href="comunidade.html">Comunidade</a>
+    <footer class="site-footer">
+      <span>© 2026 Além da Tag · De dev para dev.</span
+      ><span>Sem cursos. Sem atalhos. Só troca.</span>
+    </footer>
+    <nav class="bottom-nav">
+      <a href="index.html"><i data-lucide="house"></i>Início</a
+      ><a class="active" href="artigo.html"
+        ><i data-lucide="file-text"></i>Artigos</a
+      ><a href="trilhas.html"><i data-lucide="bookmark"></i>Trilhas</a
+      ><a href="comunidade.html"><i data-lucide="users-round"></i>Comunidade</a>
     </nav>
-
+    <dialog class="auth-modal" id="auth-modal">
+      <div class="modal-head">
+        <strong class="brand">Além da Tag</strong
+        ><button class="icon-button close-modal">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <div class="auth-tabs">
+        <button class="active" data-auth-tab="login">Entrar</button
+        ><button data-auth-tab="signup">Criar Conta</button>
+      </div>
+      <form id="auth-form">
+        <h2 id="auth-title">Bem-vindo de volta.</h2>
+        <p>Conhecimento aberto. Conexões reais.</p>
+        <label>E-mail<input type="email" required /></label
+        ><label>Senha<input type="password" required /></label
+        ><button class="button" id="auth-submit">Entrar na Comunidade</button>
+      </form>
+    </dialog>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
